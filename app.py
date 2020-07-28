@@ -136,6 +136,7 @@ def create_app(test_config=None):
         finally:
             db.session.close()
 
+    @app.route('/movies/<int:movie_id>', methods=['PATCH'])
     def update_movie(movie_id):
         try:
             body = request.get_json()
