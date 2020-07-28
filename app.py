@@ -1,8 +1,22 @@
 import os
 from flask import Flask, jsonify, request, abort
 from flask_cors import CORS
+import datetime
 
 from models import db, setup_db, Movie, Actor
+
+
+def to_date(date):
+    #print(date)
+    # Date parsed as DD/MM/YYYY or DD-MM-YYYY
+    if "/" in date:
+        parts = date.split('/')
+    elif "-" in date:
+        parts = date.split('-')
+    if not (len(parts) == 3):
+        abort(400)
+    #print("DATE:", parts[1], type(int(parts[1])))
+    return datetime.date(int(parts[2]), int(parts[1]), int(parts[0]))
 
 
 def create_app(test_config=None):
@@ -68,7 +82,7 @@ def create_app(test_config=None):
             title = body.get('title')
             release_date = body.get('release_date')
 
-            movie = Movie(title, release_date)
+            movie = Movie(title, to_date(release_date))
             movie.insert()
             return jsonify(
                 {
@@ -122,9 +136,12 @@ def create_app(test_config=None):
             age = body.get('age')
             gender = body.get('gender')
             actor = Actor.query.get(actor_id)
-            actor.name = name
-            actor.age = age
-            actor.gender = gender
+            if name is not None:
+                actor.name = name
+            if age is not None:
+                actor.age = age
+            if gender is not None:
+                actor.gender = gender
             actor.update()
             return jsonify({
                 'success': True,
@@ -141,13 +158,20 @@ def create_app(test_config=None):
         try:
             body = request.get_json()
 
-            if not ('title' in body and 'release_date' in body):
+            if (body is None) or ('title' not in body and 'release_date' not in body):
+                #print("Aborted")
                 abort(400)
+
             title = body.get('title')
+            #print(title)
             release_date = body.get('release_date')
             movie = Movie.query.get(movie_id)
-            movie.name = title
-            movie.release_date = release_date
+            if title is not None:
+                movie.title = title
+                #print(title)
+            if release_date is not None:
+                movie.release_date = to_date(release_date)
+                #print(release_date)
 
             movie.update()
             return jsonify({
