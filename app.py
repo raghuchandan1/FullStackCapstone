@@ -49,7 +49,7 @@ def create_app(test_config=None):
         return jsonify(
             {
                 'success': True,
-                'actors': formatted_movies
+                'movies': formatted_movies
             }
         )
 
@@ -138,7 +138,7 @@ def create_app(test_config=None):
     def update_actor(actor_id):
         try:
             body = request.get_json()
-            if not ('name' in body and 'age' in body and 'gender' in body):
+            if (body is None) or ('name' not in body and 'age' not in body and 'gender' not in body):
                 abort(400)
             name = body.get('name')
             age = body.get('age')

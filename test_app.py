@@ -3,7 +3,7 @@ import unittest
 import json
 from flask_sqlalchemy import SQLAlchemy
 
-from app import create_app
+from app import create_app, to_date
 from models import setup_db, Movie, Actor
 
 
@@ -25,163 +25,182 @@ class CastingAgencyTestCase(unittest.TestCase):
             self.db.create_all()
 
     def tearDown(self):
-        """Executed after reach test"""
         pass
 
-    """
-    TODO
-    Write at least one test for each test for successful operation and for expected errors.
-    """
-
-    def test_get_categories(self):
-        res = self.client().get('/categories')
+    def test_get_actors(self):
+        res = self.client().get('/actors')
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
-        self.assertTrue(len(data['categories']))
+        self.assertTrue(len(data['actors']))
 
-    def test_404_sent_requesting_non_existing_category(self):
-        res = self.client().get('/categories/1000')
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code, 404)
-        self.assertEqual(data['success'], False)
-        self.assertEqual(data['message'], 'resource not found')
-
-    def test_get_paginated_questions(self):
-        res = self.client().get('/questions')
+    def test_get_movies(self):
+        res = self.client().get('/movies')
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
-        # self.assertTrue(data['total_questions'])
-        # self.assertTrue(len(data['questions']))
-        # self.assertTrue(len(data['categories']))
+        self.assertIsNotNone(data['movies'])
+        self.assertTrue(len(data['movies']))
 
-    def test_404_sent_requesting_questions_beyond_valid_page(self):
-        res = self.client().get('/questions?page=1000')
+    def test_delete_actor(self):
+        actor = Actor(name='Test Actor', age=20, gender="Male")
+        actor.insert()
+        actor_id = actor.id
+
+        actors_before = Actor.query.all()
+
+        res = self.client().delete(f'/actors/{actor_id}')
         data = json.loads(res.data)
-
-        self.assertEqual(res.status_code, 404)
-        self.assertEqual(data['success'], False)
-        self.assertEqual(data['message'], 'resource not found')
-
-    def test_delete_question(self):
-        question = Question(question='Test question for deletion', answer='Deleted',
-                            difficulty=1, category=1)
-        question.insert()
-        question_id = question.id
-
-        questions_before = Question.query.all()
-
-        res = self.client().delete(f'/questions/{question_id}')
-        data = json.loads(res.data)
-        questions_after = Question.query.all()
-        question = Question.query.filter(
-            Question.id == question.id).one_or_none()
+        actors_after = Actor.query.all()
+        actor = Actor.query.filter(Actor.id == actor.id).one_or_none()
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
-        self.assertEqual(data['deleted'], question_id)
-        self.assertEqual(question, None)
-        self.assertTrue(len(questions_before) - len(questions_after) == 1)
+        self.assertEqual(data['deleted'], actor_id)
+        self.assertTrue(len(actors_before) - len(actors_after) == 1)
 
-    def test_422_sent_deleting_non_existing_question(self):
-        res = self.client().delete('/questions/99999')
+    def test_delete_movie(self):
+        movie = Movie(title='Test Movie', release_date=to_date("12/2/2012"))
+        movie.insert()
+        movie_id = movie.id
+
+        movies_before = Movie.query.all()
+
+        res = self.client().delete(f'/movies/{movie_id}')
+        data = json.loads(res.data)
+        movies_after = Movie.query.all()
+        movie = Movie.query.filter(Movie.id == movie.id).one_or_none()
+
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(data['success'], True)
+        self.assertEqual(data['deleted'], movie_id)
+        self.assertTrue(len(movies_before) - len(movies_after) == 1)
+
+    def test_failing_delete_actor(self):
+        res = self.client().delete('/actors/99999')
         data = json.loads(res.data)
 
         self.assertEqual(res.status_code, 422)
         self.assertEqual(data['success'], False)
         self.assertEqual(data['message'], 'unprocessable')
 
-    def test_add_question(self):
-        new_question = {
-            'question': 'Test question for addition',
-            'answer': 'Added',
-            'difficulty': 1,
-            'category': 1
-        }
-        total_questions_before = len(Question.query.all())
-        res = self.client().post('/questions', json=new_question)
+    def test_failing_delete_movie(self):
+        res = self.client().delete('/movies/99999')
         data = json.loads(res.data)
-        total_questions_after = len(Question.query.all())
+
+        self.assertEqual(res.status_code, 422)
+        self.assertEqual(data['success'], False)
+        self.assertEqual(data['message'], 'unprocessable')
+
+    def test_add_actor(self):
+        actor = {
+            'name': 'Test Actor',
+            'age': 20,
+            'gender': 'Female'
+        }
+        actors_before = len(Actor.query.all())
+        res = self.client().post('/actors', json=actor)
+        data = json.loads(res.data)
+        actors_after = len(Actor.query.all())
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data["success"], True)
-        self.assertEqual(total_questions_after, total_questions_before + 1)
+        self.assertEqual(actors_after, actors_before + 1)
 
-    def test_422_add_question(self):
-        new_question = {
-            'question': 'Test for wrong addition',
-            'answer': 'Not Added',
-            'category': 1
+    def test_add_movie(self):
+        movie = {
+            'title': 'Test Movie',
+            'release_date': "12/2/2012"
         }
-        questions_before = Question.query.all()
-        res = self.client().post('/questions', json=new_question)
+        movies_before = len(Movie.query.all())
+        res = self.client().post('/movies', json=movie)
         data = json.loads(res.data)
-        questions_after = Question.query.all()
+        movies_after = len(Movie.query.all())
+
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(data["success"], True)
+        self.assertEqual(movies_after, movies_before + 1)
+
+    def test_failing_add_actor(self):
+        actor = {
+            'name': 'Test Actor',
+            'gender': 'Female'
+        }
+        actors_before = Actor.query.all()
+        res = self.client().post('/actors', json=actor)
+        data = json.loads(res.data)
+        actors_after = Actor.query.all()
         self.assertEqual(res.status_code, 422)
         self.assertEqual(data["success"], False)
         self.assertEqual(data["message"], "unprocessable")
-        self.assertTrue(len(questions_before) == len(questions_after))
+        self.assertTrue(len(actors_before) == len(actors_after))
 
-    def test_search_questions(self):
-        new_search = {'searchTerm': 'What'}
-        res = self.client().post('/questions', json=new_search)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code, 200)
-        self.assertEqual(data['success'], True)
-        self.assertIsNotNone(data['questions'])
-        self.assertIsNotNone(data['total_questions'])
-
-    def test_404_search_question(self):
-        new_search = {
-            'searchTerm': '!@#$%^',
+    def test_failing_add_movie(self):
+        movie = {
+            'title': 'Test Movie',
+            'release_date': to_date("12/2/2012")
         }
-        res = self.client().post('/questions/search', json=new_search)
+        movies_before = len(Movie.query.all())
+        res = self.client().post('/movies', json=movie)
         data = json.loads(res.data)
-
-        self.assertEqual(res.status_code, 404)
-        self.assertEqual(data["success"], False)
-        self.assertEqual(data["message"], "resource not found")
-
-    def test_get_questions_per_category(self):
-        res = self.client().get('/categories/1/questions')
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code, 200)
-        self.assertEqual(data['success'], True)
-        self.assertTrue(len(data['questions']))
-        self.assertTrue(data['total_questions'])
-        self.assertTrue(data['current_category'])
-
-    def test_404_no_category_get_questions_per_category(self):
-        res = self.client().get('/categories/-1/questions')
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code, 404)
-        self.assertEqual(data["success"], False)
-        self.assertEqual(data["message"], "resource not found")
-
-    def test_play_quiz(self):
-        new_quiz_round = {'previous_questions': [],
-                          'quiz_category': {'type': 'Entertainment', 'id': 5}}
-
-        res = self.client().post('/quizzes', json=new_quiz_round)
-        data = json.loads(res.data)
-
-        self.assertEqual(res.status_code, 200)
-        self.assertEqual(data['success'], True)
-
-    def test_404_play_quiz(self):
-        new_quiz_round = {'previous_questions': []}
-        res = self.client().post('/quizzes', json=new_quiz_round)
-        data = json.loads(res.data)
+        movies_after = len(Movie.query.all())
 
         self.assertEqual(res.status_code, 422)
         self.assertEqual(data["success"], False)
+        self.assertEqual(data["message"], "unprocessable")
+        self.assertTrue(movies_before == movies_after)
+
+    def test_patch_actors(self):
+        actor = {
+            'name': 'Test Actor',
+            'age': 20,
+            'gender': 'Female'
+        }
+        res = self.client().post('/actors', json=actor)
+        data = json.loads(res.data)
+        actor_id = data['created']
+        updated_actor = {'name': 'New Actor'}
+        res = self.client().patch(f'/actors/{actor_id}', json=updated_actor)
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(data['success'], True)
+        self.assertEqual(data['updated'], actor_id)
+
+    def test_patch_movies(self):
+        movie = {
+            'title': 'Test Movie',
+            'release_date': "12/2/2012"
+        }
+        res = self.client().post('/movies', json=movie)
+        data = json.loads(res.data)
+        movie_id = data['created']
+        updated_movie = {'title': 'New Movie'}
+        res = self.client().patch(f'/movies/{movie_id}', json=updated_movie)
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 200)
+        self.assertEqual(data['success'], True)
+        self.assertEqual(data['updated'], movie_id)
+
+    def test_failing_patch_actors(self):
+        updated_actor = {'name': 'New Actor'}
+        res = self.client().patch(f'/actors/99999', json=updated_actor)
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 422)
+        self.assertEqual(data['success'], False)
+        self.assertEqual(data["message"], "unprocessable")
+
+    def test_failing_patch_movies(self):
+        updated_movie = {'title': 'New Movie'}
+        res = self.client().patch(f'/movies/99999', json=updated_movie)
+        data = json.loads(res.data)
+
+        self.assertEqual(res.status_code, 422)
+        self.assertEqual(data['success'], False)
         self.assertEqual(data["message"], "unprocessable")
 
 
