@@ -28,22 +28,22 @@ This will install all of the required packages we selected within the `requireme
 To run the server, execute:
 
 ```bash
-export FLASK_APP=flaskr
+export FLASK_APP=app.py
 export FLASK_ENV=development
 flask run
 ```
 
 Setting the `FLASK_ENV` variable to `development` will detect file changes and restart the server automatically.
 
-Setting the `FLASK_APP` variable to `flaskr` directs flask to use the `flaskr` directory and the `__init__.py` file to find the application. 
+Setting the `FLASK_APP` variable to `app.py` find the application. 
 
 
 ## API Reference
 
 ### Getting Started
 - Base URL: At present this app can only be run locally and is not hosted as a base URL. The backend app is hosted at the default, `http://127.0.0.1:5000/`. 
-- Authentication: This version of the application requires the user to have the appropriate permissions to access the endpoints. It uses the Auth0 sign in for authentication. The app verifies that the user has the required permissions using the JWT.  
-
+- Authentication: This version of the application requires the user to have the appropriate permissions to access the endpoints. It uses the Auth0 sign in for authentication. The app verifies that the user has the required permissions using the JWT.
+  - Add the appropriate JWT as a `Bearer` token to the `Authorization` segment of the `Header`
 ### Error Handling
 Errors are returned as JSON objects in the following format:
 ```
@@ -60,24 +60,24 @@ The API will return three error types when requests fail:
 
 ### Roles
 - Casting Assistant:
-  - ```get:actors``` Retreive all the actors
-  - ```get:movies``` Retreive all the movies  
+  - `get:actors` Retreive all the actors
+  - `get:movies` Retreive all the movies  
 - Casting Director
-  - ```get:actors``` Retreive all the actors
-  - ```post:actors``` Add a new actor
-  - ```delete:actors``` Delete an existing actor  
-  - ```get:movies``` Retreive all the movies
-  - ```post:movies``` Add a new movie
-  - ```delete:movies``` Delete an existing movie
+  - `get:actors` Retreive all the actors
+  - `post:actors` Add a new actor
+  - `delete:actors` Delete an existing actor  
+  - `get:movies` Retreive all the movies
+  - `post:movies` Add a new movie
+  - `delete:movies` Delete an existing movie
 - Executive Producer
-  - ```get:actors``` Retreive all the actors
-  - ```post:actors``` Add a new actor
-  - ```delete:actors``` Delete an existing actor
-  - ```patch:actors``` Update the details of an existing actor  
-  - ```get:movies``` Retreive all the movies
-  - ```post:movies``` Add a new movie
-  - ```delete:movies``` Delete an existing movie
-  - ```patch:movies``` Update the details of an existing movie
+  - `get:actors` Retreive all the actors
+  - `post:actors` Add a new actor
+  - `delete:actors` Delete an existing actor
+  - `patch:actors` Update the details of an existing actor  
+  - `get:movies` Retreive all the movies
+  - `post:movies` Add a new movie
+  - `delete:movies` Delete an existing movie
+  - `patch:movies` Update the details of an existing movie
   
 ### Endpoints
 #### GET /categories
