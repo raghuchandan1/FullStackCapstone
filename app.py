@@ -3,7 +3,7 @@ from flask import Flask, jsonify, request, abort
 from flask_cors import CORS
 import datetime
 
-from auth import requires_auth
+from auth import requires_auth, AuthError
 from models import db, setup_db, Movie, Actor
 
 
@@ -193,7 +193,41 @@ def create_app(test_config=None):
         finally:
             db.session.close()
 
+    @app.errorhandler(422)
+    def unprocessable(error):
+        return jsonify({
+            "success": False,
+            "error": 422,
+            "message": "unprocessable"
+        }), 422
+
+    @app.errorhandler(404)
+    def not_found(error):
+        return jsonify({
+            "success": False,
+            "error": 404,
+            "message": "resource not found"
+        }), 404
+
+    @app.errorhandler(400)
+    def not_found(error):
+        return jsonify({
+            "success": False,
+            "error": 400,
+            "message": "bad request"
+        }), 400
+
+    @app.errorhandler(AuthError)
+    def auth_error(exception):
+        return jsonify({
+            "success": False,
+            "error": exception.status_code,
+            "message": exception.error
+        }), exception.status_code
+
     return app
+
+
 
 
 app = create_app()
