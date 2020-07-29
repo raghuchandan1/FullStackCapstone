@@ -1,5 +1,3 @@
-# FullStackCapstone
-
 # Casting Agency API
 
 ## Getting Started
