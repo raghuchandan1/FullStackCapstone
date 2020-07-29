@@ -80,206 +80,66 @@ The API will return three error types when requests fail:
   - `patch:movies` Update the details of an existing movie
   
 ### Endpoints
-#### GET /categories
+#### GET /actors
 - General:
-    - Fetches a dictionary of all available categories with the category id as its key and the category name as value
-- Request Parameters:
-    - None    
-- Sample: `curl http://127.0.0.1:5000/categories`
+    - Fetches all the actors
+- Permitted Roles:
+    - Casting Assistant
+    - Casting Director
+    - Executive Producer
 
-```
-{
-  "categories": {
-    "1": "Science", 
-    "2": "Art", 
-    "3": "Geography", 
-    "4": "History", 
-    "5": "Entertainment", 
-    "6": "Sports"
-  }, 
-  "success": true
-}
-```
-
-#### GET /questions
+#### GET /movies
 - General:
-    - Fetches a paginated dictionary of questions of all available categories
-    - Results are paginated in groups of 10
- - Request Parameters(Optional): 
-	- `page=<int:page_number>`     
-- Sample: `curl http://127.0.0.1:5000/questions?page=2`
+    - Fetches all the movies
+- Required Role:
+    - Casting Assistant
+    - Casting Director
+    - Executive Producer
 
-```
-{
-  "categories": {
-    "1": "Science", 
-    "2": "Art", 
-    "3": "Geography", 
-    "4": "History", 
-    "5": "Entertainment", 
-    "6": "Sports"
-  }, 
-  "current_category": null, 
-  "questions": [
-    {
-      "answer": "Mona Lisa", 
-      "category": 2, 
-      "difficulty": 3, 
-      "id": 17, 
-      "question": "La Giaconda is better known as what?"
-    }, 
-    {
-      "answer": "One", 
-      "category": 2, 
-      "difficulty": 4, 
-      "id": 18, 
-      "question": "How many paintings did Van Gogh sell in his lifetime?"
-    }, 
-    {
-      "answer": "Jackson Pollock", 
-      "category": 2, 
-      "difficulty": 2, 
-      "id": 19, 
-      "question": "Which American artist was a pioneer of Abstract Expressionism, and a leading exponent of action painting?"
-    }
-  ], 
-  "success": true, 
-  "total_questions": 19
-}
-```
-#### POST /questions
+#### POST /actors
 - General:
-    - Adds a new question to the database if a new book is provided as JSON and returns the book id
-    - Searches questions for a keyword and returns results if `searchTerm` is provided as JSON and returns the search results
-- Request Body (Adding a new question):  
-    - `question`: Question statement  
-    - `answer`: Answer statement  
-    - `category`: Category ID  
-    - `difficulty`: Difficulty Level
+    - Adds a new actor
+- Permitted Roles:
+    - Casting Director
+    - Executive Producer    
+- Required Body:  
+    - `name`: Name of the actor  
+    - `age`: Actor's age  
+    - `gender`: Actor's gender
     
-- Sample: `curl http://127.0.0.1:5000/questions -X POST -d '{question: "Is the new question added?", answer: "Yes", difficulty: 1, category: "5"}'`
-        
-``` 
-{
-"success": True,
-"created": 20
-}
-```
-
-   - Request Body (For searching questions):
-        `searchTerm`: The keyword to be searched in the questions
-        
-   - Sample: `curl http://127.0.0.1:5000/questions -X POST -d '{searchTerm: "new question"}'`
-        
-```
-{
-  "categories": {
-    "1": "Science", 
-    "2": "Art", 
-    "3": "Geography", 
-    "4": "History", 
-    "5": "Entertainment", 
-    "6": "Sports"
-  }, 
-  "current_category": null, 
-  "questions": [
-    {
-      "answer": "Yes", 
-      "category": 5, 
-      "difficulty": 1, 
-      "id": 20, 
-      "question": "Is the new question added?"
-    }
-  ], 
-  "success": true, 
-  "total_questions": 1
-}
-
-```
-
-#### DELETE /questions/`{int:question_id}`
+#### POST /movies
 - General:
-    - Deletes the question from the database
-- Request Parameters: 
-	- None     
-- Sample: `curl -X DELETE http://127.0.0.1:5000/questions/20`
+    - Adds a new movie
+- Permitted Roles:
+    - Casting Director
+    - Executive Producer    
+- Required Body:  
+    - `title`: Movie's title  
+    - `release_date`: Movie's date of release in one of the formats "DD/MM/YYYY" or "DD-MM-YYYY"
 
-```
-{
-  "deleted": "20", 
-  "success": true
-}
-```
-
-#### GET /categories/`{int:category_id}`/questions
+#### DELETE /actors/`{int:actor_id}`
 - General:
-    - Fetches a dictionary of questions for the specified category
-- Request Parameters: 
-	- None     
-- Sample: `curl http://127.0.0.1:5000/categories/1/questions`
-
-```
-{
-  "categories": {
-    "1": "Science", 
-    "2": "Art", 
-    "3": "Geography", 
-    "4": "History", 
-    "5": "Entertainment", 
-    "6": "Sports"
-  }, 
-  "current_category": 1, 
-  "questions": [
-    {
-      "answer": "The Liver", 
-      "category": 1, 
-      "difficulty": 4, 
-      "id": 20, 
-      "question": "What is the heaviest organ in the human body?"
-    }, 
-    {
-      "answer": "Alexander Fleming", 
-      "category": 1, 
-      "difficulty": 3, 
-      "id": 21, 
-      "question": "Who discovered penicillin?"
-    }, 
-    {
-      "answer": "Blood", 
-      "category": 1, 
-      "difficulty": 4, 
-      "id": 22, 
-      "question": "Hematology is a branch of medicine involving the study of what?"
-    }
-  ], 
-  "success": true, 
-  "total_questions": 3
-}
-
-```
-
-#### POST /quizzes
+    - Deletes the given actor, if exists
+    
+#### DELETE /movies/`{int:movie_id}`
 - General:
-    - Fetches one random question within a specified category. Previously asked questions are not asked again.
-- Request Body: 
-	- `previous_questions`: Array of questions previously asked
-	- `quiz_category`: Dictionary containing category_id:category_type     
-- Sample: `curl -X POST http://127.0.0.1:5000/quizzes -d '{previous_questions: [18], quiz_category: {type: "Science", id: "1"}}'`
+    - Deletes the movie with the given id, if exists
 
-```
-{
-  "question": {
-    "answer": "Alexander Fleming", 
-    "category": 1, 
-    "difficulty": 3, 
-    "id": 16, 
-    "question": "Who discovered penicillin?"
-  }, 
-  "success": true
-}
+#### PATCH /actors/`{int:actor_id}`
+- General:
+    - Updates the details of the actor having the given id
+- Body(Atleast one required):  
+    - `name`: Name of the actor  
+    - `age`: Actor's age  
+    - `gender`: Actor's gender
 
-```
-
+#### PATCH /actors/`{int:actor_id}`
+- General:
+    - Updates the details of the actor having the given id
+- Body(Atleast one required):  
+    - `title`: Movie's title  
+    - `release_date`: Movie's date of release in one of the formats "DD/MM/YYYY" or "DD-MM-YYYY"
+    
 ## Testing
 To run the tests, run
 ```
