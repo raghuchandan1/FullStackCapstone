@@ -1,10 +1,11 @@
 import os
-from sqlalchemy import Column, String, Integer, Date
+from sqlalchemy import Column, String, Integer, Date, create_engine
 from flask_sqlalchemy import SQLAlchemy
 import json
 
-database_name = "casting_agency"
-database_path = "postgres://{}:{}@{}/{}".format('postgres', 'Postgres@1', 'localhost:5432', database_name)
+# database_name = "casting_agency"
+# database_path = "postgres://{}:{}@{}/{}".format('postgres', 'Postgres@1', 'localhost:5432', database_name)
+database_path = os.environ['DATABASE_URL']
 
 db = SQLAlchemy()
 
