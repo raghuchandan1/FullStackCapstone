@@ -1,5 +1,5 @@
 import os
-from flask import Flask, jsonify, request, abort
+from flask import Flask, jsonify, request, abort, redirect
 from flask_cors import CORS
 import datetime
 
@@ -28,6 +28,13 @@ def create_app(test_config=None):
     @app.route('/')
     def get_greeting():
         return "Welcome to the Casting Agency App"
+
+    @app.route('/login')
+    def hello():
+        return redirect("https://raghuchandan1.us.auth0.com/authorize?audience=https://localhost:5000"
+                        "&response_type=token"
+                        "&client_id=nnhTcalxmjfTKyE6Mt5ACubrch3QUrXf"
+                        "&redirect_uri=https://casting-agency-raghuchandan1.herokuapp.com/")
 
     @app.route('/actors')
     @requires_auth('get:actors')
