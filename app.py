@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request, abort
 from flask_cors import CORS
 import datetime
 
+from auth import requires_auth
 from models import db, setup_db, Movie, Actor
 
 
@@ -29,6 +30,7 @@ def create_app(test_config=None):
         return "Welcome to the Casting Agency App"
 
     @app.route('/actors')
+    @requires_auth('get:actors')
     def get_actors():
         actors = Actor.query.order_by(Actor.name).all()
         formatted_actors = [actor.format() for actor in actors]
@@ -40,6 +42,7 @@ def create_app(test_config=None):
         )
 
     @app.route('/movies')
+    @requires_auth('get:movies')
     def get_movies():
         movies = Movie.query.order_by(Movie.title).all()
         formatted_movies = [movie.format() for movie in movies]
@@ -51,6 +54,7 @@ def create_app(test_config=None):
         )
 
     @app.route('/actors', methods=['POST'])
+    @requires_auth('post:actors')
     def add_actor():
         try:
             body = request.get_json()
@@ -74,6 +78,7 @@ def create_app(test_config=None):
             db.session.close()
 
     @app.route('/movies', methods=['POST'])
+    @requires_auth('post:movies')
     def add_movie():
         try:
             body = request.get_json()
@@ -97,6 +102,7 @@ def create_app(test_config=None):
             db.session.close()
 
     @app.route('/actors/<int:actor_id>', methods=['DELETE'])
+    @requires_auth('delete:actors')
     def delete_actor(actor_id):
         try:
             actor = Actor.query.get(actor_id)
@@ -112,6 +118,7 @@ def create_app(test_config=None):
             db.session.close()
 
     @app.route('/movies/<int:movie_id>', methods=['DELETE'])
+    @requires_auth('delete:movies')
     def delete_movie(movie_id):
         try:
             movie = Movie.query.get(movie_id)
@@ -127,6 +134,7 @@ def create_app(test_config=None):
             db.session.close()
 
     @app.route('/actors/<int:actor_id>', methods=['PATCH'])
+    @requires_auth('patch:actors')
     def update_actor(actor_id):
         try:
             body = request.get_json()
@@ -154,6 +162,7 @@ def create_app(test_config=None):
             db.session.close()
 
     @app.route('/movies/<int:movie_id>', methods=['PATCH'])
+    @requires_auth('patch:movies')
     def update_movie(movie_id):
         try:
             body = request.get_json()
