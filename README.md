@@ -20,23 +20,8 @@ pip install -r requirements.txt
 This will install all of the required packages we selected within the `requirements.txt` file.
 
 ## Heroku Setup
-
-## Database Setup
-
-## Running the server
-
-To run the server, execute:
-
-```bash
-export FLASK_APP=app.py
-export FLASK_ENV=development
-flask run
-```
-
-Setting the `FLASK_ENV` variable to `development` will detect file changes and restart the server automatically.
-
-Setting the `FLASK_APP` variable to `app.py` find the application. 
-
+The app is hosted on Heroku at the following URL: https://casting-agency-raghuchandan1.herokuapp.com/
+The API endpoints can be accessed from the same URL as mentioned above.
 
 ## API Reference
 
