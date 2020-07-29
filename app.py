@@ -30,7 +30,7 @@ def create_app(test_config=None):
         return "Welcome to the Casting Agency App"
 
     @app.route('/login')
-    def hello():
+    def login():
         return redirect("https://raghuchandan1.us.auth0.com/authorize?audience=https://localhost:5000"
                         "&response_type=token"
                         "&client_id=nnhTcalxmjfTKyE6Mt5ACubrch3QUrXf"
