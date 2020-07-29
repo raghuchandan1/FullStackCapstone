@@ -17,3 +17,4 @@ six @ file:///home/conda/feedstock_root/build_artifacts/six_1590081179328/work
 SQLAlchemy @ file:///D:/bld/sqlalchemy_1593116549410/work
 Werkzeug==1.0.1
 wincertstore==0.2
+gunicorn
