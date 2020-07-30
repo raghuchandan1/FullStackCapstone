@@ -130,4 +130,5 @@ To run the tests, run
 ```
 python test_app.py
 ```
-You can also import the Postman collection and run the tests
+You can also import the Postman collection and run the tests  
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b057daf38a223628f598)
