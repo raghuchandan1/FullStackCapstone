@@ -131,5 +131,5 @@ To run the tests, run the command below and also remove the `requires_authentica
 python test_app.py
 ```
 ### Test using Postman
-Import the Postman collection and run the tests to test the role based access control. You can also use the button below to run the tests directly 
+Import the Postman collection and run the tests to test the role based access control. You can also use the button below to run the tests directly  
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b057daf38a223628f598)
