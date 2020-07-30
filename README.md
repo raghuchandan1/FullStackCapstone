@@ -126,9 +126,10 @@ The API will return three error types when requests fail:
     - `release_date`: Movie's date of release in one of the formats "DD/MM/YYYY" or "DD-MM-YYYY"
     
 ## Testing
-To run the tests, run
+To run the tests, run the command below and also remove the `requires_authentication` decorator in app.py 
 ```
 python test_app.py
 ```
-You can also import the Postman collection and run the tests  
+Import the Postman collection and run the tests to test the role based access control  
+You can also use the button below to run the tests directly  
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b057daf38a223628f598)
