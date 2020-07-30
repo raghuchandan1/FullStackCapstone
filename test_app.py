@@ -154,7 +154,7 @@ class CastingAgencyTestCase(unittest.TestCase):
 
     def test_patch_actors(self):
         actor = {
-            'name': 'Test Actor',
+            'name': 'New Actor',
             'age': 20,
             'gender': 'Female'
         }
@@ -171,7 +171,7 @@ class CastingAgencyTestCase(unittest.TestCase):
 
     def test_patch_movies(self):
         movie = {
-            'title': 'Test Movie',
+            'title': 'New Movie',
             'release_date': "12/2/2012"
         }
         res = self.client().post('/movies', json=movie)
