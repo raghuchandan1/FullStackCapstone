@@ -78,7 +78,7 @@ def create_app(test_config=None):
                     'created': actor.id
                 }
             )
-        except:
+        except Exception:
             db.session.rollback()
             abort(422)
         finally:
@@ -102,7 +102,7 @@ def create_app(test_config=None):
                     'created': movie.id
                 }
             )
-        except:
+        except Exception:
             db.session.rollback()
             abort(422)
         finally:
@@ -118,7 +118,7 @@ def create_app(test_config=None):
                 'success': True,
                 'deleted': actor.id
             })
-        except:
+        except Exception:
             db.session.rollback()
             abort(422)
         finally:
@@ -134,7 +134,7 @@ def create_app(test_config=None):
                 'success': True,
                 'deleted': movie.id
             })
-        except:
+        except Exception:
             db.session.rollback()
             abort(422)
         finally:
@@ -162,7 +162,7 @@ def create_app(test_config=None):
                 'success': True,
                 'updated': actor.id
             })
-        except:
+        except Exception:
             db.session.rollback()
             abort(422)
         finally:
@@ -194,7 +194,7 @@ def create_app(test_config=None):
                 'success': True,
                 'updated': movie.id
             })
-        except:
+        except Exception:
             db.session.rollback()
             abort(422)
         finally:
