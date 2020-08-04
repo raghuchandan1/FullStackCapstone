@@ -6,9 +6,9 @@ from urllib.request import urlopen
 from flask import request
 from jose import jwt
 
-AUTH0_DOMAIN = 'raghuchandan1.us.auth0.com'
-ALGORITHMS = ['RS256']
-API_AUDIENCE = 'https://localhost:5000'
+# AUTH0_DOMAIN = 'raghuchandan1.us.auth0.com'
+# ALGORITHMS = ['RS256']
+# API_AUDIENCE = 'https://localhost:5000'
 
 AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
 ALGORITHMSh = os.environ['ALGORITHMS']
