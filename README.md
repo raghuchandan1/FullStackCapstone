@@ -1,5 +1,13 @@
 # Casting Agency API
 
+Casting Agency API is a RESTFUL API which is deployed on Heroku. The API provides the details of actors and movies and based on the user's permissions allow him/her to add new actors or movies. This project is submitted as a Capstone for the Full Stack Nanodegree program. The application covers all the concepts which I have acquired throughout the entire course.
+The technologies used in the project are:
+- Flask (Server)
+- Postgres (Database)
+- SQLAlchemy (ORM for interacting with the DB)
+- Auth0 (Authentication)
+- Heroku (Deployment)
+
 ## Getting Started
 
 ### Installing Dependencies
