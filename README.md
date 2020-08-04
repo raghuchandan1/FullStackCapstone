@@ -33,9 +33,9 @@ The API endpoints can be accessed from the same URL as mentioned above.
 ### Authentication
 Use https://casting-agency-raghuchandan1.herokuapp.com/login to login and get the JWT
 I have added some pre-defined users with the following roles which you can use to get the required JWT token:
-- Casting Assistant  => `ca@castingagency.com`:`Qaz12345`
-- Casting Director   => `cd@castingagency.com`:`Qaz12345`
-- Executive Producer => `ep@castingagency.com`:`Qaz12345`
+  - Casting Assistant  => `ca@castingagency.com`:`Qaz12345`
+  - Casting Director   => `cd@castingagency.com`:`Qaz12345`
+  - Executive Producer => `ep@castingagency.com`:`Qaz12345`
 
 ### Error Handling
 Errors are returned as JSON objects in the following format:
