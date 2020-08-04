@@ -1,7 +1,7 @@
 {
-	"id": "ac6e181a-e51a-496b-89d3-bcb083479c52",
+	"id": "7cc8b679-1489-4dd6-a3ea-55a46c9df06a",
 	"name": "CastingAgencyTests",
-	"timestamp": "2020-07-30T07:30:46.451Z",
+	"timestamp": "2020-08-04T09:12:06.695Z",
 	"collection_id": "11368d41-1556-4ea6-9329-45ddd26e24e0",
 	"folder_id": 0,
 	"environment_id": "0",
@@ -12,7 +12,7 @@
 			"id": "f24c937c-99b9-42f4-8592-89aafb49ae1c",
 			"name": "/actors",
 			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors",
-			"time": 383,
+			"time": 680,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -27,7 +27,7 @@
 				}
 			},
 			"times": [
-				383
+				680
 			],
 			"allTests": [
 				{
@@ -39,7 +39,7 @@
 			"id": "128063e8-85a5-4929-957b-16a4979bfcfd",
 			"name": "/movies",
 			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies",
-			"time": 327,
+			"time": 344,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -54,7 +54,7 @@
 				}
 			},
 			"times": [
-				327
+				344
 			],
 			"allTests": [
 				{
@@ -66,7 +66,7 @@
 			"id": "ef89b43e-d518-4691-8287-fad975bd86a7",
 			"name": "/actors",
 			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors",
-			"time": 310,
+			"time": 391,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -81,7 +81,7 @@
 				}
 			},
 			"times": [
-				310
+				391
 			],
 			"allTests": [
 				{
@@ -93,33 +93,6 @@
 			"id": "db2c131c-f15e-4f5e-b3a0-50147c1c7ad7",
 			"name": "/movies",
 			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies",
-			"time": 329,
-			"responseCode": {
-				"code": 401,
-				"name": "UNAUTHORIZED"
-			},
-			"tests": {
-				"Status code is 401": true
-			},
-			"testPassFailCounts": {
-				"Status code is 401": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				329
-			],
-			"allTests": [
-				{
-					"Status code is 401": true
-				}
-			]
-		},
-		{
-			"id": "b5dc0e37-bf74-4e52-965a-7d829eea09f3",
-			"name": "/actors/1",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/1",
 			"time": 325,
 			"responseCode": {
 				"code": 401,
@@ -144,9 +117,9 @@
 			]
 		},
 		{
-			"id": "17738eb2-4625-4928-b531-cc41bf6e2179",
-			"name": "/movies/1",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/1",
+			"id": "b5dc0e37-bf74-4e52-965a-7d829eea09f3",
+			"name": "/actors/1",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/1",
 			"time": 323,
 			"responseCode": {
 				"code": 401,
@@ -171,10 +144,10 @@
 			]
 		},
 		{
-			"id": "0564f371-4ff2-4be9-8177-fcb63865da42",
-			"name": "/actors/1",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/1",
-			"time": 302,
+			"id": "17738eb2-4625-4928-b531-cc41bf6e2179",
+			"name": "/movies/1",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/1",
+			"time": 306,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -189,7 +162,34 @@
 				}
 			},
 			"times": [
-				302
+				306
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "0564f371-4ff2-4be9-8177-fcb63865da42",
+			"name": "/actors/1",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/1",
+			"time": 300,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				300
 			],
 			"allTests": [
 				{
@@ -201,7 +201,7 @@
 			"id": "aa620032-8e01-4eda-8268-a2188391fa31",
 			"name": "/movies/1",
 			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/1",
-			"time": 320,
+			"time": 298,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -216,7 +216,7 @@
 				}
 			},
 			"times": [
-				320
+				298
 			],
 			"allTests": [
 				{
@@ -226,6 +226,276 @@
 		},
 		{
 			"id": "c35322fe-e5e6-4077-bc1a-b3d24590d194",
+			"name": "/actors",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors",
+			"time": 342,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				342
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "985a8c81-80d7-4d50-a329-be4f2b392956",
+			"name": "/movies",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies",
+			"time": 311,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				311
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "c78cd219-130e-4e4a-a921-6a8ade21bdb7",
+			"name": "/actors",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors",
+			"time": 313,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				313
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "e80352a1-0a4d-421e-a941-275477ea09e9",
+			"name": "/movies",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies",
+			"time": 312,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				312
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "2167f562-9353-429c-9e58-8da07bcf1ea0",
+			"name": "/actors/{{actor_id}}",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/22",
+			"time": 358,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				358
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "4b091bf1-900a-4a41-b457-5f27f626705d",
+			"name": "/movies/{{movie_id}}",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/2",
+			"time": 315,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				315
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "bf635bfe-dddd-427e-a7b5-7d20c1f16e2e",
+			"name": "/actors/{{actor_id}}",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/22",
+			"time": 308,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				308
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "f600f429-38f7-4887-95ac-b2d00cf6396a",
+			"name": "/movies/{{movie_id}}",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/2",
+			"time": 297,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				297
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "d9558e20-5ec8-4d3c-93a9-6000466b0fba",
+			"name": "/actors",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors",
+			"time": 313,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				313
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "1efb9e7a-d2a3-43b3-8cb9-9f5a4791bfdf",
+			"name": "/movies",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies",
+			"time": 318,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				318
+			],
+			"allTests": [
+				{
+					"Status code is 200": true
+				}
+			]
+		},
+		{
+			"id": "645983c5-8d95-43d6-8262-7105dcea51bb",
 			"name": "/actors",
 			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors",
 			"time": 321,
@@ -252,10 +522,10 @@
 			]
 		},
 		{
-			"id": "985a8c81-80d7-4d50-a329-be4f2b392956",
+			"id": "c6191abe-2ab3-4f29-a590-6c601d36c758",
 			"name": "/movies",
 			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies",
-			"time": 315,
+			"time": 331,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -270,7 +540,7 @@
 				}
 			},
 			"times": [
-				315
+				331
 			],
 			"allTests": [
 				{
@@ -279,117 +549,9 @@
 			]
 		},
 		{
-			"id": "c78cd219-130e-4e4a-a921-6a8ade21bdb7",
-			"name": "/actors",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors",
-			"time": 348,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				348
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "e80352a1-0a4d-421e-a941-275477ea09e9",
-			"name": "/movies",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies",
-			"time": 315,
-			"responseCode": {
-				"code": 401,
-				"name": "UNAUTHORIZED"
-			},
-			"tests": {
-				"Status code is 401": true
-			},
-			"testPassFailCounts": {
-				"Status code is 401": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				315
-			],
-			"allTests": [
-				{
-					"Status code is 401": true
-				}
-			]
-		},
-		{
-			"id": "2167f562-9353-429c-9e58-8da07bcf1ea0",
+			"id": "3bf8cdc0-be22-49c6-a200-63f0f5b2ba07",
 			"name": "/actors/{{actor_id}}",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/19",
-			"time": 342,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				342
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "4b091bf1-900a-4a41-b457-5f27f626705d",
-			"name": "/movies/{{movie_id}}",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/2",
-			"time": 391,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				391
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "bf635bfe-dddd-427e-a7b5-7d20c1f16e2e",
-			"name": "/actors/{{actor_id}}",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/19",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/23",
 			"time": 343,
 			"responseCode": {
 				"code": 200,
@@ -414,172 +576,10 @@
 			]
 		},
 		{
-			"id": "f600f429-38f7-4887-95ac-b2d00cf6396a",
-			"name": "/movies/{{movie_id}}",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/2",
-			"time": 317,
-			"responseCode": {
-				"code": 401,
-				"name": "UNAUTHORIZED"
-			},
-			"tests": {
-				"Status code is 401": true
-			},
-			"testPassFailCounts": {
-				"Status code is 401": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				317
-			],
-			"allTests": [
-				{
-					"Status code is 401": true
-				}
-			]
-		},
-		{
-			"id": "d9558e20-5ec8-4d3c-93a9-6000466b0fba",
-			"name": "/actors",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors",
-			"time": 322,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				322
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "1efb9e7a-d2a3-43b3-8cb9-9f5a4791bfdf",
-			"name": "/movies",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies",
-			"time": 352,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				352
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "645983c5-8d95-43d6-8262-7105dcea51bb",
-			"name": "/actors",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors",
-			"time": 341,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				341
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "c6191abe-2ab3-4f29-a590-6c601d36c758",
-			"name": "/movies",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies",
-			"time": 314,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				314
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
-			"id": "3bf8cdc0-be22-49c6-a200-63f0f5b2ba07",
-			"name": "/actors/{{actor_id}}",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/20",
-			"time": 372,
-			"responseCode": {
-				"code": 200,
-				"name": "OK"
-			},
-			"tests": {
-				"Status code is 200": true
-			},
-			"testPassFailCounts": {
-				"Status code is 200": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				372
-			],
-			"allTests": [
-				{
-					"Status code is 200": true
-				}
-			]
-		},
-		{
 			"id": "6eab525c-ec69-4ab3-9a3c-42632d7cbaa8",
 			"name": "/movies/{{movie_id}}",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/9",
-			"time": 329,
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/10",
+			"time": 323,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -594,7 +594,7 @@
 				}
 			},
 			"times": [
-				329
+				323
 			],
 			"allTests": [
 				{
@@ -605,8 +605,8 @@
 		{
 			"id": "39304ba7-5e18-43b0-9774-7c9b8786033d",
 			"name": "/actors/{{actor_id}}",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/20",
-			"time": 339,
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/23",
+			"time": 309,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -621,7 +621,7 @@
 				}
 			},
 			"times": [
-				339
+				309
 			],
 			"allTests": [
 				{
@@ -632,8 +632,8 @@
 		{
 			"id": "a9d6cad4-4b06-4689-9e9d-866433ebb62f",
 			"name": "/movies/{{movie_id}}",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/9",
-			"time": 356,
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/10",
+			"time": 310,
 			"responseCode": {
 				"code": 200,
 				"name": "OK"
@@ -648,7 +648,7 @@
 				}
 			},
 			"times": [
-				356
+				310
 			],
 			"allTests": [
 				{
@@ -660,7 +660,7 @@
 			"id": "a009dd72-799a-47c3-9ee2-3efa973bd1c5",
 			"name": "/actors",
 			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors",
-			"time": 266,
+			"time": 249,
 			"responseCode": {
 				"code": 401,
 				"name": "UNAUTHORIZED"
@@ -675,7 +675,7 @@
 				}
 			},
 			"times": [
-				266
+				249
 			],
 			"allTests": [
 				{
@@ -687,168 +687,6 @@
 			"id": "6f50924f-09e5-407f-82b6-be8e309aa1e3",
 			"name": "/movies",
 			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies",
-			"time": 253,
-			"responseCode": {
-				"code": 401,
-				"name": "UNAUTHORIZED"
-			},
-			"tests": {
-				"Status code is 401": true
-			},
-			"testPassFailCounts": {
-				"Status code is 401": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				253
-			],
-			"allTests": [
-				{
-					"Status code is 401": true
-				}
-			]
-		},
-		{
-			"id": "93320a0e-1e9e-4f34-9290-a4c40c090379",
-			"name": "/actors",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors",
-			"time": 285,
-			"responseCode": {
-				"code": 401,
-				"name": "UNAUTHORIZED"
-			},
-			"tests": {
-				"Status code is 401": true
-			},
-			"testPassFailCounts": {
-				"Status code is 401": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				285
-			],
-			"allTests": [
-				{
-					"Status code is 401": true
-				}
-			]
-		},
-		{
-			"id": "b3bb0f29-3b42-480d-af26-c64cd5714c4d",
-			"name": "/movies",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies",
-			"time": 252,
-			"responseCode": {
-				"code": 401,
-				"name": "UNAUTHORIZED"
-			},
-			"tests": {
-				"Status code is 401": true
-			},
-			"testPassFailCounts": {
-				"Status code is 401": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				252
-			],
-			"allTests": [
-				{
-					"Status code is 401": true
-				}
-			]
-		},
-		{
-			"id": "a4ddfbf1-d273-473e-a56b-c8dff80d4d77",
-			"name": "/actors/1",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/1",
-			"time": 246,
-			"responseCode": {
-				"code": 401,
-				"name": "UNAUTHORIZED"
-			},
-			"tests": {
-				"Status code is 401": true
-			},
-			"testPassFailCounts": {
-				"Status code is 401": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				246
-			],
-			"allTests": [
-				{
-					"Status code is 401": true
-				}
-			]
-		},
-		{
-			"id": "ff3d2a85-f493-41e6-a43c-51603c1ad749",
-			"name": "/movies/1",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/1",
-			"time": 265,
-			"responseCode": {
-				"code": 401,
-				"name": "UNAUTHORIZED"
-			},
-			"tests": {
-				"Status code is 401": true
-			},
-			"testPassFailCounts": {
-				"Status code is 401": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				265
-			],
-			"allTests": [
-				{
-					"Status code is 401": true
-				}
-			]
-		},
-		{
-			"id": "bdefdcea-df09-4f95-b06f-d50b2c37627f",
-			"name": "/actors/1",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/1",
-			"time": 247,
-			"responseCode": {
-				"code": 401,
-				"name": "UNAUTHORIZED"
-			},
-			"tests": {
-				"Status code is 401": true
-			},
-			"testPassFailCounts": {
-				"Status code is 401": {
-					"pass": 1,
-					"fail": 0
-				}
-			},
-			"times": [
-				247
-			],
-			"allTests": [
-				{
-					"Status code is 401": true
-				}
-			]
-		},
-		{
-			"id": "ff46a563-021a-40a4-9c54-10fa438c5e6e",
-			"name": "/movies/1",
-			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/1",
 			"time": 245,
 			"responseCode": {
 				"code": 401,
@@ -871,10 +709,172 @@
 					"Status code is 401": true
 				}
 			]
+		},
+		{
+			"id": "93320a0e-1e9e-4f34-9290-a4c40c090379",
+			"name": "/actors",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors",
+			"time": 251,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				251
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "b3bb0f29-3b42-480d-af26-c64cd5714c4d",
+			"name": "/movies",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies",
+			"time": 274,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				274
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "a4ddfbf1-d273-473e-a56b-c8dff80d4d77",
+			"name": "/actors/1",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/1",
+			"time": 251,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				251
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "ff3d2a85-f493-41e6-a43c-51603c1ad749",
+			"name": "/movies/1",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/1",
+			"time": 243,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				243
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "bdefdcea-df09-4f95-b06f-d50b2c37627f",
+			"name": "/actors/1",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/actors/1",
+			"time": 245,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				245
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
+		},
+		{
+			"id": "ff46a563-021a-40a4-9c54-10fa438c5e6e",
+			"name": "/movies/1",
+			"url": "https://casting-agency-raghuchandan1.herokuapp.com/movies/1",
+			"time": 312,
+			"responseCode": {
+				"code": 401,
+				"name": "UNAUTHORIZED"
+			},
+			"tests": {
+				"Status code is 401": true
+			},
+			"testPassFailCounts": {
+				"Status code is 401": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				312
+			],
+			"allTests": [
+				{
+					"Status code is 401": true
+				}
+			]
 		}
 	],
 	"count": 1,
-	"totalTime": 10095,
+	"totalTime": 10161,
 	"collection": {
 		"requests": [
 			{
