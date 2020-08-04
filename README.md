@@ -151,4 +151,5 @@ python test_app.py
 ```
 ### Test using Postman
 Import the Postman collection and run the tests to test the role based access control. You can also use the button below to run the tests directly  
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b057daf38a223628f598)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b057daf38a223628f598)  
+or else visit the link [Postman Link](https://www.getpostman.com/collections/b057daf38a223628f598)
