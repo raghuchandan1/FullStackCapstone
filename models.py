@@ -1,7 +1,7 @@
 import os
-from sqlalchemy import Column, String, Integer, Date, create_engine
+
 from flask_sqlalchemy import SQLAlchemy
-import json
+from sqlalchemy import Column, String, Integer, Date
 
 # database_name = "casting_agency"
 # database_path = "postgres://{}:{}@{}/{}".format('postgres', 'Postgres@1', 'localhost:5432', database_name)

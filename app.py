@@ -1,14 +1,14 @@
-import os
+import datetime
+
 from flask import Flask, jsonify, request, abort, redirect
 from flask_cors import CORS
-import datetime
 
 from auth import requires_auth, AuthError
 from models import db, setup_db, Movie, Actor
 
 
 def to_date(date):
-    #print(date)
+    # print(date)
     # Date parsed as DD/MM/YYYY or DD-MM-YYYY
     if "/" in date:
         parts = date.split('/')
@@ -16,7 +16,7 @@ def to_date(date):
         parts = date.split('-')
     if not (len(parts) == 3):
         abort(400)
-    #print("DATE:", parts[1], type(int(parts[1])))
+    # print("DATE:", parts[1], type(int(parts[1])))
     return datetime.date(int(parts[2]), int(parts[1]), int(parts[0]))
 
 
@@ -175,19 +175,19 @@ def create_app(test_config=None):
             body = request.get_json()
 
             if (body is None) or ('title' not in body and 'release_date' not in body):
-                #print("Aborted")
+                # print("Aborted")
                 abort(400)
 
             title = body.get('title')
-            #print(title)
+            # print(title)
             release_date = body.get('release_date')
             movie = Movie.query.get(movie_id)
             if title is not None:
                 movie.title = title
-                #print(title)
+                # print(title)
             if release_date is not None:
                 movie.release_date = to_date(release_date)
-                #print(release_date)
+                # print(release_date)
 
             movie.update()
             return jsonify({
@@ -233,8 +233,6 @@ def create_app(test_config=None):
         }), exception.status_code
 
     return app
-
-
 
 
 app = create_app()

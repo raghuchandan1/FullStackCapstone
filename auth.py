@@ -1,10 +1,10 @@
 import json
 import os
+from functools import wraps
+from urllib.request import urlopen
 
 from flask import request
-from functools import wraps
 from jose import jwt
-from urllib.request import urlopen
 
 AUTH0_DOMAIN = 'raghuchandan1.us.auth0.com'
 ALGORITHMS = ['RS256']
