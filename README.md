@@ -1,5 +1,13 @@
 # Casting Agency API
 
+Casting Agency API is a RESTFUL API which is deployed on Heroku. The API provides the details of actors and movies and based on the user's permissions allow him/her to add new actors or movies. This project is submitted as a Capstone for the Full Stack Nanodegree program. The application covers all the concepts which I have acquired throughout the entire course.
+The technologies used in the project are:
+- Flask (Server)
+- Postgres (Database)
+- SQLAlchemy (ORM for interacting with the DB)
+- Auth0 (Authentication)
+- Heroku (Deployment)
+
 ## Getting Started
 
 ### Installing Dependencies
@@ -29,6 +37,17 @@ The API endpoints can be accessed from the same URL as mentioned above.
 - Base URL: At present this app can only be run locally and is not hosted as a base URL. The backend app is hosted at the default, `http://127.0.0.1:5000/`. 
 - Authentication: This version of the application requires the user to have the appropriate permissions to access the endpoints. It uses the Auth0 sign in for authentication. The app verifies that the user has the required permissions using the JWT.
   - Add the appropriate JWT as a `Bearer` token to the `Authorization` segment of the `Header`
+  
+### Authentication
+Use https://casting-agency-raghuchandan1.herokuapp.com/login to login and get the JWT
+I have added some pre-defined users with the following roles which you can use to get the required JWT token:
+- Casting Assistant    
+  - `ca@castingagency.com`:`Qaz12345`
+- Casting Director  
+  - `cd@castingagency.com`:`Qaz12345`
+- Executive Producer  
+  - `ep@castingagency.com`:`Qaz12345`
+
 ### Error Handling
 Errors are returned as JSON objects in the following format:
 ```
