@@ -11,7 +11,7 @@ from jose import jwt
 # API_AUDIENCE = 'https://localhost:5000'
 
 AUTH0_DOMAIN = os.environ['AUTH0_DOMAIN']
-ALGORITHMSh = os.environ['ALGORITHMS']
+ALGORITHMS = os.environ['ALGORITHMS']
 API_AUDIENCE = os.environ['API_AUDIENCE']
 
 
